@@ -35,7 +35,7 @@ class CurriculumsController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+       Curriculums::create($request->all());
     }
 
     /**
@@ -47,6 +47,7 @@ class CurriculumsController extends Controller
     public function show(Curriculums $curriculums)
     {
         //
+        
     }
 
     /**

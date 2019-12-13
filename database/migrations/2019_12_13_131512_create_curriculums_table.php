@@ -17,12 +17,16 @@ class CreateCurriculumsTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('cargo');
-            $table->date('dd/mm/aa');
             $table->text('perfil');
-            $table->integer('id_formacion')
-                ->references('id')->on('formacions');  
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            //relations
+            $table->foreign('user_id')->references('id')->on('Users')
+                ->delete('cascade')
+                ->update('cascade');
         });
+
     }
 
     /**

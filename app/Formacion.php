@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Formacion extends Model
 {
     //
+    protected $fillable  = ['level', 'title','year', ];
+
 }

@@ -15,12 +15,19 @@ class CreateFormacionsTable extends Migration
     {
         Schema::create('formacions', function (Blueprint $table) {
             $table->id();
-            $table->string('level');
+            $table->enum('level', [
+                'TECNICO','TECNOLOGO','PROFESIONAL',
+                'DIPLOMADO','ESPECIALIZACION','MAESTRIA','Doctorado', 
+            ]);
             $table->string('title');
             $table->string('year');
-            $table->bigInteger('id_formacion')
-                ->references('id')->on('users');
+            $table->bigInteger('id_user')->unsigned();
             $table->timestamps();
+
+            //relations
+            $table->foreign('id_user')->references('id')->on('Users')
+                        ->delete('cascade')
+                        ->update('cascade');
         });
     }
 

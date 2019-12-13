@@ -14,8 +14,7 @@ class CreateBooksTable extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->id()
-                ->references('id')->on('users');
+            $table->id();
             $table->text('description');
             $table->string('author');
             $table->string('public_year');
