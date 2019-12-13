@@ -16,3 +16,4 @@ Route::get('login', 'PageController@login')->name('login');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('home', 'CurriculumsController@store');
